@@ -43,6 +43,7 @@ class _NotGirisiEkraniState extends State<NotGirisiEkrani> {
 
   List<Map<String, dynamic>> ogrenciListesi = [];
 
+  // CREATE (Oluşturma) - _hesaplaVeNotKaydet fonksiyonu
   void _hesaplaVeNotKaydet() {
     String ad = _adController.text;
     String soyad = _soyadController.text;
@@ -75,6 +76,9 @@ class _NotGirisiEkraniState extends State<NotGirisiEkrani> {
     });
   }
 
+
+  // DELETE (Silme) - _ogrenciSil fonksiyonu
+  
   void _ogrenciSil(String ad, String soyad) async {
     QuerySnapshot querySnapshot = await _firestore
         .collection('ogrenciler')
@@ -101,6 +105,8 @@ class _NotGirisiEkraniState extends State<NotGirisiEkrani> {
     );
   }
 
+  // UPDATE (Güncelleme) - _notGuncelle fonksiyonu
+  
   void _notGuncelle(String ad, String soyad, int yeniNot) async {
     QuerySnapshot querySnapshot = await _firestore
         .collection('ogrenciler')
@@ -141,6 +147,9 @@ class _NotGirisiEkraniState extends State<NotGirisiEkrani> {
     }
   }
 
+
+  // READ (Okuma) - build fonksiyonu ve ListView
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
